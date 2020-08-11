@@ -1,0 +1,54 @@
+html(lang='en')
+  head
+  body
+    title viewbooks
+    link(rel='stylesheet', href='stylesheets/style.css')
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg');opacity: 0.9;background-size: cover;height: 1230px; ", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='width: 800px; height: fit-content')
+          .card-header(style='background-color: #e9ecef;')
+            h3(style='color: #111010;')  Your Cart:
+          .card-body(style='background-color: #e9ecef;')
+              each item in cart_items
+                .card-listing
+                  .card_details(style='padding-left: 15px; background-color: white;')
+                    if item.Book_id === null
+                      .first-row
+                          h3.box-title(style='color: red;')
+                            | This item is no longer available
+                            form(action='remove_from_cart', method='POST')
+                              input(type='hidden' name='Book_id' value=item.Book_id)
+                              input(type='hidden' name='Cart_id' value=item.id)
+                              button.btn.login_btn(type='submit') Remove from Cart
+                    else
+                        .first-row
+                          h4.box-title
+                            | #{item.Book.Title} 
+                            small by #{item.Book.Authors}
+                          span.price
+                            | Price
+                            |  #{item.Price}
+                        .second-row
+                          .time
+                            | Publication Date: #{item.Book.PublicationDate}
+                          .seats
+                            | Quantity: 
+                            | #{item.Quantity}
+                            br
+                          .seats
+                            | ISBN: 
+                            | #{item.Book.ISBN}
+                        .third-row
+                          .book(style='padding-bottom: 10px;')
+                            form(action='remove_from_cart', method='POST' name='del_form')
+                              input(type='hidden' name='Book_id' value=item.Book_id id='del_book_id')
+                              input(type='hidden' name='Cart_id' value=item.id id='del_cart_id')
+                              button.btn.login_btn(type='submit' onclick="return confirm('Are you sure you want to remove this from Cart?');") Remove from Cart 
+          .card-body(style='background-color: #e9ecef;')
+            h4.box-title
+              | Total Amount: 
+              | #{total_price}
+            form(action='place_order', method='POST')
+              button.btn.login_btn(type='submit') Place Order 
+            form(action='buy_books', method='POST')
+              button.btn.login_btn(type='submit') Go Back 

@@ -1,0 +1,25 @@
+html
+  head
+  body
+    | <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title seller
+    link(rel='stylesheet', href='stylesheets/style.css')
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg'); opacity: 0.9;background-size: cover;height: 1230px;", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='height: fit-content;margin-top: 80px;')
+          .card-header
+            h3(style='color: white;') Buyer Panel
+          .card-body
+            form(action='buyer_view_books', method='post')
+              .form-group
+                button.btn.float-right.login_btn(type='submit', style='width: 150px;height: 100px; margin-right: 100px; margin-top: 40px;') View Books
+            form(action='view_cart', method='post')
+              .form-group
+                button.btn.float-right.login_btn(type='submit', style='width: 150px;height: 100px; margin-right: 100px; margin-top: 40px;') View Cart
+            form(action='logout', method='post')
+              .form-group
+                button.btn.float-right.login_btn(type='submit', style='width: 150px;height: 100px; margin-right: 100px; margin-top: 40px;') Logout
+            form(action='homepage', method='post')
+              .form-group
+                button.btn.float-right.login_btn(type='submit', style='width: 150px;height: 100px; margin-right: 100px; margin-top: 40px;') Go Back

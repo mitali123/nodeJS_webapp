@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/image_2.jpg'); opacity: 0.9;background-size: cover;height: 1230px;", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='height: fit-content;')
+          .card-header
+            h3(style='color: white; height: fit-content;') Enter New Details:
+          .card-body
+            form(action='update_account_details', method='post')
+              .input-group.form-group
+                .input-group-prepend Firstname
+                  span.input-group-text
+                    i.fas.fa-key
+                input.form-control(type='text', name='firstname', required='', value=userdetails.firstname)
+              .input-group.form-group
+                .input-group-prepend Lastname
+                  span.input-group-text
+                    i.fas.fa-key
+                input.form-control(type='text', name='lastname', required='', value=userdetails.lastname)
+              .form-group
+                button.btn.float-right.login_btn(type='submit') Update Details
+              .input-group.form-group
+                form(action='viewAccountDetails', method='POST')
+                  button.btn.login_btn(type='submit', style='width: 250px;height: fit-content;margin-left: 100px;') Go Back

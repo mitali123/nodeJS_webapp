@@ -1,0 +1,64 @@
+html(lang='en')
+  head
+    title Travelopia
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    nav#ftco-navbar.navbar.navbar-expand-lg.navbar-dark.ftco_navbar.bg-dark.ftco-navbar-light
+      .container
+        a.navbar-brand
+          span BookWorm
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+          </button>
+        #ftco-nav.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item
+              form(action='logout', method='POST')
+                button.btn.login_btn_menu(type='submit', style='background-color: #ffb400;') Log Out
+            li.nav-item.active
+              form(action='homepage', method='POST')
+                button.btn.login_btn_menu(type='submit', value='Home') Home
+            li.nav-item
+              form(action='buy_books', method='POST')
+                button.btn.login_btn_menu(type='submit', value='Home') Buy Books
+            li.nav-item
+              form(action='sell_books', method='POST')
+                button.btn.login_btn_menu(type='submit', value='Home') Sell Books
+            li.nav-item
+              form(action='view_cart', method='POST')
+                button.btn.login_btn_menu(type='submit', value='Home') View Cart
+            li.nav-item
+              form(action='viewAccountDetails', method='POST')
+                button.btn.login_btn_menu(type='submit', style='width: fit-content;') View #{email}'s Account Details
+    // END nav
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg'); opacity: 0.9;", data-stellar-background-ratio='0.5')
+      // <div class="overlay"></div>
+      .row.no-gutters.slider-text.js-fullheight.align-items-center.justify-content-end(data-scrollax-parent='true', overlay='')
+        .col-md-7.ftco-animate.mt-5(data-scrollax=" properties: { translateY: '70%' }")
+          h1.mb-4(data-scrollax="properties: { translateY: '30%', opacity: 2.6 }") Fuel Your Wanderlust
+          p.mb-4(data-scrollax="properties: { translateY: '30%', opacity: 2.6 }") Let's Travel the World!
+    
+    footer.ftco-footer.ftco-footer-2.ftco-section
+      .container
+        .row.mb-5
+          .col-md
+            .ftco-footer-widget.mb-4
+              h2.ftco-heading-2 Travelopia
+              p Lets Travel the World!
+    script(src='js/jquery.min.js')
+    script(src='js/jquery-migrate-3.0.1.min.js')
+    script(src='js/popper.min.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.easing.1.3.js')
+    script(src='js/jquery.waypoints.min.js')
+    script(src='js/jquery.stellar.min.js')
+    script(src='js/owl.carousel.min.js')
+    script(src='js/jquery.magnific-popup.min.js')
+    script(src='js/aos.js')
+    script(src='js/jquery.animateNumber.min.js')
+    script(src='js/bootstrap-datepicker.js')
+    script(src='js/scrollax.min.j.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false')
+    script(src='js/google-map.js')
+    script(src='js/main.js')

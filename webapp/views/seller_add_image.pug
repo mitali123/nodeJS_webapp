@@ -1,0 +1,24 @@
+html
+  head
+  body
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title JSP Page
+    link(rel='stylesheet', href='stylesheets/style.css')
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg');opacity: 0.9;background-size: cover;height: 1230px; ", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='width: 800px; height: fit-content')
+          .card-header
+            h3 Please Enter Book Details:
+          .card-body
+            form(action='add_images', method='POST' enctype='multipart/form-data')
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Select Images
+                input.form-control(type='file', required='', name='images', accept="image/*", multiple='')
+              .input-group.form-group
+                input.form-control(type='hidden' name='book_id' value=book_id)
+              .form-group
+                button.btn.login_btn(type='submit', style='width: 200px; height: 80px; margin-left: 120px;') Add Images
+            form(action='sell_books', method='POST')
+              .form-group
+                button.btn.login_btn(type='submit', style='width: 200px; height: 80px; margin-left: 120px;') Go Back

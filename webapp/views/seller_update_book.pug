@@ -1,0 +1,43 @@
+html
+  head
+  body
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    title JSP Page
+    link(rel='stylesheet', href='stylesheets/style.css')
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg');opacity: 0.9;background-size: cover;height: 1230px; ", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='width: 800px; height: fit-content')
+          .card-header
+            h3 Please Enter Book Details:
+          .card-body
+            form(action='seller_update_book_details', method='POST')
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') ISBN
+                input.form-control(type='text', required='',name='ISBN' value=bookdetails.ISBN)
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Title
+                input.form-control(type='text', required='', name='Title', value=bookdetails.Title)
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Authors
+                input.form-control(type='text', required='',name='Authors', value=bookdetails.Authors)
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Publication Date
+                input.form-control(type='date',required='', name='PublicationDate', value=bookdetails.PublicationDate)
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Price
+                input.form-control(type='text', required='', name='Price', value=bookdetails.Price)
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text(style=' width: 180px;') Quantity
+                input.form-control(type='text', required='', name='Quantity', value=bookdetails.Quantity)
+              .form-group
+                input(type='hidden' name='book_id' value=bookdetails.id)
+                button.btn.login_btn(type='submit', style='width: 200px; height: 80px; margin-left: 120px;') Update Book
+            form(action='seller_view_books', method='POST')
+              .form-group
+                button.btn.login_btn(type='submit', style='width: 200px; height: 80px; margin-left: 120px;') Go Back

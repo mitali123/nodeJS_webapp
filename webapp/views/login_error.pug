@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title errorRegister
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/image_2.jpg'); opacity: 0.9;background-size: cover;height: 1230px;", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-100
+        .card
+          .card-body
+            h3(style='color: white;') Error logging in! Please Try Again
+            form(action='get_login_info', method='post')
+              button.btn.login_btn(type='submit', value='Home', style='width: fit-content;height: 100px;margin-left: 100px;margin-top: 40px;') Go Back

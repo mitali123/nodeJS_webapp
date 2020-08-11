@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title errorRegister
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900', rel='stylesheet')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/image_2.jpg'); opacity: 0.9;background-size: cover;height: 1230px;", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-100
+        .card(style='margin-top: 200px;height:fit-content;')
+          .card-header
+            h3(style='color: white;')  Your Account Details:
+          .card-body(style='height:fit-content;')
+            .input-group.form-group
+              .input-group-prepend
+                | Email
+                span.input-group-text(style='width:250px; height:fit-content;margin-left: 43px;')
+                  i.fas.fa-user #{email}
+            .input-group.form-group
+              .input-group-prepend
+                | First Name
+                span.input-group-text(style='width:250px; height:fit-content;')
+                  i.fas.fa-user #{firstname}
+            .input-group.form-group
+              .input-group-prepend
+                | Last Name
+                span.input-group-text(style='width:250px; height:fit-content;')
+                  i.fas.fa-user #{lastname}
+            .input-group.form-group
+              form(action='change_password', method='POST')
+                button.btn.login_btn(type='submit', style='width: 250px;height: fit-content;margin-left: 100px;') Change Password
+            .input-group.form-group
+              form(action='change_account_details', method='POST')
+                button.btn.login_btn(type='submit', style='width: 250px;height: fit-content;margin-left: 100px;') Change Account Details
+            .input-group.form-group
+              form(action='homepage', method='POST')
+                button.btn.login_btn(type='submit', style='width: 250px;height: fit-content;margin-left: 100px;') Go Back

@@ -1,0 +1,40 @@
+html(lang='en')
+  head
+  body
+    title viewbooks
+    link(rel='stylesheet', href='stylesheets/style.css')
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/img2.jpg');opacity: 0.9;background-size: cover;height: 1230px; ", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card(style='width: 800px; height: fit-content')
+          .card-header(style='background-color: #e9ecef;')
+            h3(style='color: #111010;')  Books Available:
+          .card-body(style='background-color: #e9ecef;')
+              each book in books
+                    .card-listing
+                      .card_details(style='padding-left: 15px; background-color: white;')
+                        .first-row
+                          h4.box-title
+                            | #{book.Title} 
+                            small by #{book.Authors}
+                          span.price
+                            | Price
+                            |  #{book.Price}
+                        .second-row
+                          .time
+                            | Publication Date: #{book.PublicationDate}
+                            | Quantity: #{book.Quantity}
+                          .seats
+                            | ISBN: #{book.ISBN}
+                            | Book ID: #{book.id}
+                        .third-row
+                          .book(style='padding-bottom: 10px;')
+                            form(action='add_to_cart', method='POST')
+                              input(type='hidden' name='book_id' value=book.id)
+                              input(type='text' name='quantity' placeholder='Quantity' style='width: 80; font-size: small; font-family: inherit; margin-right: 20px;') 
+                              button.btn.login_btn(type='submit') Add To Cart
+                            form(action='buyer_view_images', method='POST')
+                              input(type='hidden' name='book_id' value=book.id)
+                              button.btn.login_btn(type='submit') View Images
+          .card-body(style='background-color: #e9ecef;')
+            form(action='buy_books', method='POST')
+              button.btn.login_btn(type='submit') Go Back 

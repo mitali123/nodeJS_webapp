@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title successRegister
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='stylesheets/style.css')
+  body
+    .hero-wrap.js-fullheight.overlay(style="background-image: url('images/image_2.jpg'); opacity: 0.9;background-size: cover;height: 1230px;", data-stellar-background-ratio='0.5')
+      .d-flex.justify-content-center.h-50
+        .card
+          .card-header
+            h3(style='color: white;') Welcome #{email}! You are Registered!
+          form(action='get_login_info', method='POST')
+            .form-group
+              input#email(type='hidden', name='email', value='#{email}')
+              button.btn.login_btn(type='submit', style='width: fit-content;height: 100px;margin-left: 100px;margin-top: 40px;') Proceed to Login

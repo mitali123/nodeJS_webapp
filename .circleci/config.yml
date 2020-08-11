@@ -1,0 +1,34 @@
+version: 2.1
+jobs:
+  pr_check:
+    docker:
+      - image: circleci/node:12.16.3
+    steps:
+      - checkout
+      - run: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      - run: unzip awscliv2.zip
+      - run: sudo ./aws/install
+      - run: aws --version
+      - run: cd webapp && npm install
+      - run: ls -al
+      - run: pwd
+      - run: cd /home/circleci/ && ls -al
+      - run: cd /home/circleci/ && mkdir artifacts
+      - run: cd /home/circleci/project && sudo zip -r /home/circleci/artifacts/csye6225-webapp-${CIRCLE_BUILD_NUM}.zip webapp scripts *.yml
+      - run: ls -al
+      - run: aws configure set AWS_ACCESS_KEY_ID ${AWS_ACCESS_KEY_ID}  
+      - run: sudo apt-get update && sudo apt-get install -yy less
+      - run: aws s3 sync /home/circleci/artifacts s3://${bucket} --region ${AWS_REGION}
+      - run: cd /home/circleci/artifacts && aws deploy register-application-revision --application-name csye6225-webapp --s3-location bucket=${bucket},bundleType=zip,key=csye6225-webapp-${CIRCLE_BUILD_NUM}.zip --region us-east-1
+      - run: pwd
+      - run: cd /home/circleci/artifacts && aws deploy create-deployment --application-name csye6225-webapp --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name csye6225-webapp-deployment --s3-location bucket=${bucket},bundleType=zip,key=csye6225-webapp-${CIRCLE_BUILD_NUM}.zip --region us-east-1
+
+workflows:
+    pr_check_workflow:
+      jobs:
+        - pr_check:
+            filters:
+              branches:
+                only:
+                  - master
+

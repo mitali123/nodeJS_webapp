@@ -27,7 +27,7 @@
     "mysql2": "^2.1.0",
     "nocache": "^2.1.0",
     "npx": "^10.2.2",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "sequelize": "^5.21.10",
     "sequelize-cli": "^5.5.1",
     "should": "^13.2.3",

@@ -9,7 +9,7 @@
   "dependencies": {
     "app-root-path": "^3.0.0",
     "assert": "^2.0.0",
-    "aws-sdk": "^2.698.0",
+    "aws-sdk": "^2.814.0",
     "bcryptjs": "^2.4.3",
     "chai-http": "^4.3.0",
     "cookie-parser": "~1.4.4",
